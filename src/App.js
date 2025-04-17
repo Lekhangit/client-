@@ -6,6 +6,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Home from "./components/Home";
 import Products from "./components/Products";
+import ProductDetail from "./components/ProductDetail"; 
 import AddProduct from "./components/AddProduct";
 import Search from "./components/Search";
 import Login from "./components/Login";
@@ -64,6 +65,7 @@ export function App() {
           <Route path="/products" element={<Products />} />
           <Route path="/addProduct" element={<AddProduct />} />
           <Route path="/search" element={<Search />} />
+          <Route path="/products/:id" element={<ProductDetail />} /> {/* Route mới */}
         </Routes>
       </Container>
 

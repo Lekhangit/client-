@@ -66,9 +66,8 @@ function Products() {
         {shoeList.map((shoe) => (
           <Col key={shoe._id} md={4} lg={3} className="mb-4">
             <Card
-              className={`shadow-lg h-100 ${
-                editingId === shoe._id ? "ring-2 scale-105" : ""
-              }`}
+              className={`shadow-lg h-100 ${editingId === shoe._id ? "ring-2 scale-105" : ""
+                }`}
               style={{
                 display: "flex",
                 flexDirection: "column",
@@ -102,7 +101,7 @@ function Products() {
                     <Card.Text>Type: {shoe.type}</Card.Text>
                     <Card.Text>Sizes: {shoe.sizes.join(", ")}</Card.Text>
                     <Card.Text>Color: {shoe.color}</Card.Text>
-                    <Card.Text>Price: {shoe.price}$</Card.Text>
+                    <Card.Text>Price: {shoe.price} VND</Card.Text>
                     <Card.Text>Stock: {shoe.stock}</Card.Text>
                     <div>
                       <NavLink
