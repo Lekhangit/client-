@@ -65,32 +65,68 @@ function Products() {
       <Row>
         {shoeList.map((shoe) => (
           <Col key={shoe._id} md={4} lg={3} className="mb-4">
-            <Card className={`shadow-lg ${editingId === shoe._id ? "ring-2 scale-105" : ""}`}>
+            <Card
+              className={`shadow-lg h-100 ${
+                editingId === shoe._id ? "ring-2 scale-105" : ""
+              }`}
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "space-between",
+                height: "100%",
+              }}
+            >
               {editingId === shoe._id ? (
                 <Update shoe={shoe} onSave={handleSave} />
               ) : (
-                <Card.Body>
-                  <Card.Title>{shoe.name}</Card.Title>
-                  <Card.Text>Type: {shoe.type}</Card.Text>
-                  <Card.Text>Sizes: {shoe.sizes.join(", ")}</Card.Text>
-                  <Card.Text>Color: {shoe.color}</Card.Text>
-                  <Card.Text>Price: {shoe.price}$</Card.Text>
-                  <Card.Text>Stock: {shoe.stock}</Card.Text>
-                  <img
+                <>
+                  <Card.Img
+                    variant="top"
                     src={`http://localhost:3001/uploads/${shoe.image}`}
                     alt={shoe.name}
-                    className="img-thumbnail mb-3"
+                    style={{
+                      height: "200px",
+                      objectFit: "cover",
+                      width: "100%",
+                    }}
                   />
-                  <NavLink to={`/products/${shoe._id}`} className="btn btn-info me-2">
-                    Chi tiết
-                  </NavLink>
-                  <Button variant="warning" onClick={() => handleEditClick(shoe)} className="me-2">
-                    Edit
-                  </Button>
-                  <Button variant="danger" onClick={() => handleDeleteClick(shoe._id)}>
-                    Delete
-                  </Button>
-                </Card.Body>
+                  <Card.Body
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      justifyContent: "space-between",
+                      flexGrow: 1,
+                    }}
+                  >
+                    <Card.Title>{shoe.name}</Card.Title>
+                    <Card.Text>Type: {shoe.type}</Card.Text>
+                    <Card.Text>Sizes: {shoe.sizes.join(", ")}</Card.Text>
+                    <Card.Text>Color: {shoe.color}</Card.Text>
+                    <Card.Text>Price: {shoe.price}$</Card.Text>
+                    <Card.Text>Stock: {shoe.stock}</Card.Text>
+                    <div>
+                      <NavLink
+                        to={`/products/${shoe._id}`}
+                        className="btn btn-info me-2"
+                      >
+                        Chi tiết
+                      </NavLink>
+                      <Button
+                        variant="warning"
+                        onClick={() => handleEditClick(shoe)}
+                        className="me-2"
+                      >
+                        Edit
+                      </Button>
+                      <Button
+                        variant="danger"
+                        onClick={() => handleDeleteClick(shoe._id)}
+                      >
+                        Delete
+                      </Button>
+                    </div>
+                  </Card.Body>
+                </>
               )}
             </Card>
           </Col>
