@@ -39,13 +39,17 @@ function Products() {
     }
   };
 
-  const handleSave = (updatedShoe) => {
+  const handleSave = (id, formData) => {
     setIsUpdating(true);
     axios
-      .put(`http://localhost:3001/shoes/${updatedShoe._id}`, updatedShoe)
+      .put(`http://localhost:3001/shoes/${id}`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data", // Đảm bảo gửi đúng định dạng
+        },
+      })
       .then((response) => {
         const updatedShoes = shoeList.map((shoe) =>
-          shoe._id === updatedShoe._id ? response.data : shoe
+          shoe._id === id ? response.data : shoe
         );
         setShoeList(updatedShoes);
         setEditingId(null);
