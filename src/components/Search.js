@@ -4,6 +4,7 @@ import HomeIcon from "@mui/icons-material/Home";
 import { NavLink } from "react-router-dom";
 import { Container, Card, Alert, Row, Col } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
+import "../Search.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 export default function Search() {
@@ -64,24 +65,20 @@ export default function Search() {
         <Row className="g-4 mt-3">
           {filteredShoes.slice(0, visibleShoes).map((shoe) => (
             <Col key={shoe._id} xs={12} sm={6} md={4} lg={3}>
-              <Card className="shoe-card">
+              <Card className="shoe-card h-100">
                 <Card.Img
                   variant="top"
                   src={`http://localhost:3001/uploads/${shoe.image}`}
                   alt={shoe.name}
                   className="shoe-image"
                 />
-                <Card.Body className="card-body">
-                  <Card.Title className="card-title">{shoe.name}</Card.Title>
-
-                  <Card.Text>Type: {shoe.type}</Card.Text>
-                  <Card.Text>Sizes: {shoe.sizes.join(", ")}</Card.Text>
-                  <Card.Text>Color: {shoe.color}</Card.Text>
-                  <Card.Text>Price: {shoe.price}$</Card.Text>
-                  <Card.Text>Stock: {shoe.stock}</Card.Text>
+                <Card.Body className="card-body d-flex flex-column">
+                  <Card.Title className="card-title highlight-title">{shoe.name}</Card.Title>
+                  <Card.Text className="highlight-type">Type: {shoe.type}</Card.Text>
+                  <Card.Text className="price-text highlight-price">Price: {shoe.price} VND</Card.Text>
                   <NavLink
                     to={`/products/${shoe._id}`}
-                    className="details-button"
+                    className="details-button mt-auto"
                   >
                     View Details
                   </NavLink>

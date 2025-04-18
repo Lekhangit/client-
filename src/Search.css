@@ -1,0 +1,56 @@
+.shoe-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%; /* Đảm bảo chiều cao đồng nhất */
+  }
+  
+  .card-body {
+    flex-grow: 1; /* Đẩy nội dung xuống để căn đều */
+  }
+  
+  .details-button {
+    margin-top: auto; /* Đẩy nút xuống cuối */
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+  }
+/* Làm nổi bật tên sản phẩm */
+.highlight-title {
+    font-size: 20px; /* Tăng kích thước chữ */
+    font-weight: bold; /* Làm chữ đậm */
+    color: #007bff; /* Màu xanh nổi bật */
+    text-transform: uppercase; /* Viết hoa toàn bộ */
+    margin-bottom: 10px;
+  }
+  
+  /* Làm nổi bật loại sản phẩm */
+  .highlight-type {
+    font-size: 16px;
+    font-weight: 500;
+    color: #6c757d; /* Màu xám nhạt */
+    margin-bottom: 5px;
+  }
+  
+  /* Làm nổi bật giá */
+  .highlight-price {
+    font-size: 18px; /* Tăng kích thước chữ */
+    font-weight: bold; /* Làm chữ đậm */
+    color: #ff5722; /* Màu cam nổi bật */
+    margin-top: 10px;
+  }
+  .shoe-card img {
+    width: 100%;
+    height: 200px; /* Đặt chiều cao cố định */
+    object-fit: cover; /* Giữ tỷ lệ hình ảnh và cắt phần thừa nếu cần */
+    display: block; /* Đảm bảo không có khoảng trống dưới hình ảnh */
+  }
+  
+  .details-button:hover {
+    background-color: #0056b3;
+  }

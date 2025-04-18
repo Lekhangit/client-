@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
 import HomeIcon from "@mui/icons-material/Home";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom"; // Import useNavigate
 
 function AddProduct() {
   const [addName, setAddName] = useState("");
@@ -13,6 +13,8 @@ function AddProduct() {
   const [addImage, setAddImage] = useState("");
   const [generatedId, setGeneratedId] = useState(""); // State để lưu ID tự động
   const [showAlert, setShowAlert] = useState(false); // State để hiển thị thông báo
+
+  const navigate = useNavigate(); // Khởi tạo useNavigate
 
   // Map type to brandCode
   const getBrandCode = (type) => {
@@ -53,6 +55,8 @@ function AddProduct() {
         const data = await response.json();
         setGeneratedId(data.shoe.id); // Lưu ID tự động vào state
         setShowAlert(true); // Hiển thị thông báo
+
+        // Reset form
         setAddName("");
         setAddPrice("");
         setAddSize("");
@@ -60,6 +64,9 @@ function AddProduct() {
         setAddColor("");
         setAddStock("");
         setAddImage("");
+
+        // Chuyển hướng về trang Products
+        navigate("/products");
       } else {
         alert("Failed to add shoe");
       }

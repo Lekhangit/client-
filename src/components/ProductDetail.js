@@ -47,8 +47,8 @@ function ProductDetail() {
                     <Card.Text className="text-muted">Color: <span className="fw-bold">{product.color}</span></Card.Text>
                     <Card.Text className="text-danger fs-5">Price: <span className="fw-bold">{product.price} VND</span></Card.Text> {/* Làm nổi bật giá */}
                     <Card.Text className="text-muted">Stock: <span className="fw-bold">{product.stock}</span></Card.Text>
-                    <NavLink to="/" className="btn btn-primary mt-3">
-                        Back to Home
+                    <NavLink to="/products" className="btn btn-primary mt-3">
+                        Back
                     </NavLink>
                 </Card.Body>
             </Card>
